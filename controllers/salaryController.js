@@ -808,9 +808,16 @@ const getPayrollPdf = async (req, res) => {
     });
 
     const browser = await puppeteer.launch({
-      headless: "new",
-      args: ["--no-sandbox", "--disable-setuid-sandbox"]
+      headless: true,
+      args: [
+        "--no-sandbox",
+        "--disable-setuid-sandbox",
+        "--disable-gpu",
+        "--no-zygote",
+        "--disable-dev-shm-usage"
+      ]
     });
+
 
     const pdfBuffers = [];
 
