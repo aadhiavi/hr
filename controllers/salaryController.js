@@ -88,9 +88,7 @@ const getFixedSalaryByEmployee = async (req, res) => {
   }
 };
 
-
 //payroll records
-
 const saveDraftPayroll = async (req, res) => {
   try {
     const { userId } = req.params;
@@ -809,6 +807,7 @@ const getPayrollPdf = async (req, res) => {
 
     const browser = await puppeteer.launch({
       headless: true,
+      executablePath: puppeteer.executablePath(),
       args: [
         "--no-sandbox",
         "--disable-setuid-sandbox",
